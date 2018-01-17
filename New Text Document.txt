@@ -1,0 +1,162 @@
+<head>
+<title>Railway Reservation System</title>
+<link type="image/x-icon" rel="shortcut icon" href="icon.jpeg" />
+</head>
+<?php
+session_start();
+$user = $_POST['un'];
+$pass = $_POST['pw'];
+if ($user == 'Krishna' && $pass == '9407468316'){
+	session_start();
+  $_SESSION[ 'IS_AUTHENTICATED' ] = 1;
+ $_SESSION[ 'USER_ID' ] = $user;
+	header('location:search.php');
+		echo ('
+		<style>
+		#heading {
+	border-radius:5px;
+	width:100%;
+	border:solid 1px green;
+	background-color:#B2EBF2;
+}
+.button {
+    position: relative;
+    background-color: #FB8C00;
+    border: none;
+	border-radius:10px;
+    font-size: 15px;
+    color: #FFFFFF;
+    float:right;
+    width: 100px;
+	height:40px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+.button:after {
+    content: "";
+    background: #90EE90;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+a {
+	text-decoration:none;
+	cursor:pointer;
+}
+</style>
+		<div id = "heading" >
+<table border = "0" style = "margin-top:0px" width = "100%">
+<tr><td align="left"><img src = "logo.png"></td>
+<td width = "50%" align="center"><h1>Indian Railways</h1></td>
+<td><a href = "logout.php"><button class = "button">Logout</button</a></td></tr>
+</table>
+</div>
+		<div style="background:#80D8FF;border-radius:10px">
+		<table border="0" cellspacing="10" align="center">
+		<tr><td><a href="#">Services</a></td><td><a href="#">My Transactions</a></td><td><a href="#">My Profile</a></td></tr></table></div>
+		<form action = "search.php" method = "post">
+		<table = border = "0" align="left" style="margin-top:15px">
+		<tr>
+		<td>Source :-</td><td><input type = "search" name = "src" placeholder = "Source">
+</td></tr>
+<tr><td>Destination :-</td><td><input type = "search" name = "dst" placeholder = "Destination"></td></tr>
+<tr><td>Date:- </td><td><input type = "date" name = "doj"></td></tr>
+<tr><td colspan = "2"><input type = "submit" value = "Search"></td></tr></table>
+		</form>
+		
+		');
+	}
+	else {
+		echo('
+		<style>
+		#heading {
+	border-radius:5px;
+	width:100%;
+	border:solid 1px green;
+	background-color:#B2EBF2;
+}
+.button {
+    position: relative;
+    background-color: #FB8C00;
+    border: none;
+	border-radius:10px;
+    font-size: 15px;
+    color: #FFFFFF;
+    float:right;
+    width: 100px;
+	height:40px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+.button:after {
+    content: "";
+    background: #90EE90;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+a {
+	text-decoration:none;
+	cursor:pointer;
+}
+</style>
+		<div id = "heading" >
+<table border = "0" style = "margin-top:0px" width = "100%">
+<tr><td align="left"><img src = "logo.png"></td>
+<td width = "50%" align="center"><h1>Indian Railways</h1></td></tr></table>
+<h1 style = "text-align:center">Incorrect username or Password</h1>
+</h2 style = "text-align:center">You will be redirected to home page in a short while.</h2>	
+');
+		header ( 'Refresh:5;url=index.php');
+	}		
+?>
